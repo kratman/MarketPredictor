@@ -4,6 +4,7 @@ import "math/rand"
 
 type asset struct {
 	price float64
+	oldPrice float64
 	drag float64
 	velocity float64
 	growthRate float64
@@ -12,15 +13,19 @@ type asset struct {
 }
 
 func NewAsset(price float64, drag float64, growth float64, coupling float64, flux float64) asset {
-	return asset {price, drag, 0.0, growth, coupling, flux}
+	return asset {price, price, drag, 0.0, growth, coupling, flux}
 }
 
 func updateAsset(currentAsset asset, coupledVelocity float64) {
-	var oldPrice = currentAsset.velocity
+	updatePrice(currentAsset, coupledVelocity)
+	updateVelocity(currentAsset)
+}
+
+func updatePrice(currentAsset asset, coupledVelocity float64) {
+	currentAsset.oldPrice = currentAsset.price
 	addDynamics(currentAsset)
 	addCoupling(currentAsset, coupledVelocity)
 	addFluctuation(currentAsset)
-	updateVelocity(currentAsset, oldPrice)
 }
 
 func addDynamics(currentAsset asset) {
@@ -38,6 +43,6 @@ func addFluctuation(currentAsset asset) {
 	currentAsset.price += scale * currentAsset.fluctuationSize
 }
 
-func updateVelocity(currentAsset asset, oldPrice float64) {
-	currentAsset.velocity = currentAsset.price - oldPrice
+func updateVelocity(currentAsset asset) {
+	currentAsset.velocity = currentAsset.price - currentAsset.oldPrice
 }
