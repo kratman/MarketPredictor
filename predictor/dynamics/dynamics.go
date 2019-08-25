@@ -12,7 +12,7 @@ type CoupledAsset struct {
 	fluctuationSize float64
 }
 
-func NewAsset(price float64, drag float64, growth float64, coupling float64, flux float64) CoupledAsset {
+func New(price float64, drag float64, growth float64, coupling float64, flux float64) CoupledAsset {
 	return CoupledAsset{price, price, drag, 0.0, growth, coupling, flux}
 }
 
