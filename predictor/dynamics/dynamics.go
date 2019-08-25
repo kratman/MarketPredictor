@@ -3,12 +3,12 @@ package dynamics
 import "math/rand"
 
 type CoupledAsset struct {
-	price float64
-	oldPrice float64
-	drag float64
-	velocity float64
-	growthRate float64
-	coupledRate float64
+	price           float64
+	oldPrice        float64
+	drag            float64
+	velocity        float64
+	growthRate      float64
+	coupledRate     float64
 	fluctuationSize float64
 }
 
@@ -39,7 +39,7 @@ func addCoupling(currentAsset CoupledAsset, coupledVelocity float64) {
 }
 
 func addFluctuation(currentAsset CoupledAsset) {
-	var scale = 2.0 * rand.Float64() - 1.0
+	var scale = 2.0*rand.Float64() - 1.0
 	currentAsset.price += scale * currentAsset.fluctuationSize
 }
 
