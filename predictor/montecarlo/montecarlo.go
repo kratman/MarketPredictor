@@ -6,9 +6,9 @@ import (
 )
 
 type SoloAsset struct {
-	price float64
-	mean float64
-	variance float64
+	price      float64
+	meanReturn float64
+	variance   float64
 }
 
 func NewAsset(price float64, mean float64, variance float64) SoloAsset {
@@ -27,5 +27,5 @@ func calculateJump(currentAsset SoloAsset) float64 {
 }
 
 func calculateDrift(currentAsset SoloAsset) float64 {
-	return currentAsset.mean - 0.5 * currentAsset.variance
+	return currentAsset.meanReturn - 0.5 * currentAsset.variance
 }
