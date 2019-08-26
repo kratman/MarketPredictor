@@ -15,10 +15,11 @@ func New(price float64, mean float64, variance float64) SoloAsset {
 	return SoloAsset{price, mean, variance}
 }
 
-func updateMonteCarlo(currentAsset SoloAsset) {
+func UpdateMonteCarlo(currentAsset SoloAsset) SoloAsset {
 	var change = calculateDrift(currentAsset)
 	change += calculateJump(currentAsset)
 	currentAsset.price *= math.Exp(change)
+	return currentAsset
 }
 
 func calculateJump(currentAsset SoloAsset) float64 {
@@ -27,5 +28,9 @@ func calculateJump(currentAsset SoloAsset) float64 {
 }
 
 func calculateDrift(currentAsset SoloAsset) float64 {
-	return currentAsset.logMeanReturn - 0.5*currentAsset.standardDeviation*currentAsset.standardDeviation
+	return currentAsset.logMeanReturn - (0.5*currentAsset.standardDeviation*currentAsset.standardDeviation)
+}
+
+func GetPrice(currentAsset SoloAsset) float64 {
+	return currentAsset.price
 }
