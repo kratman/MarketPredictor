@@ -13,7 +13,7 @@ func main() {
 	meanReturn := 0.000284685088744
 	variance := 0.011551333339698
 	numberOfTrials := 10
-    numberOfSteps := 1000
+	numberOfSteps := 1000
 	var a []montecarlo.SoloAsset
 
 	for i := 0; i < numberOfTrials; i++ {
@@ -36,7 +36,7 @@ func main() {
 
 	for i := 0; i < numberOfSteps; i++ {
 		fmt.Printf("%v", i+1)
-		for j ,_ := range a {
+		for j, _ := range a {
 			var asset *montecarlo.SoloAsset = &a[j]
 			montecarlo.UpdateMonteCarlo(asset)
 			fmt.Printf("%v", ", ")
