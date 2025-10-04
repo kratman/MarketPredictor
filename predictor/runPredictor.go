@@ -1,14 +1,12 @@
 package main
 
 import (
-	"./montecarlo"
 	"fmt"
-	"math/rand"
-	"time"
+
+	"./montecarlo"
 )
 
 func main() {
-	rand.Seed(time.Now().UTC().UnixNano())
 	price := 44.06
 	meanReturn := 0.000284685088744
 	variance := 0.011551333339698
