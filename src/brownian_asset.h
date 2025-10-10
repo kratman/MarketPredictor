@@ -37,7 +37,9 @@ class CoupledAsset final : public Asset {
     }
 
 public:
-    CoupledAsset(double const price, double const drag, double const growth, double const coupling, double const flux) {
+    CoupledAsset(
+        double const price, double const drag, double const growth, double const coupling,
+        double const flux, std::string const& asset_name="Price") {
         this->price = price;
         this->oldPrice = price;
         this->drag = drag;
@@ -45,6 +47,7 @@ public:
         this->growthRate = growth;
         this->coupledRate = coupling;
         this->fluctuationSize = flux;
+        this->name = asset_name;
     }
 
     void update_asset() override {

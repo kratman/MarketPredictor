@@ -18,10 +18,12 @@ class SoloAsset final : public Asset {
     }
 
 public:
-    SoloAsset(double const price, double const mean, double const variance) {
+    SoloAsset(
+        double const price, double const mean, double const variance, std::string const& asset_name="Price") {
         this->price = price;
         this->logMeanReturn = mean;
         this->standardDeviation = variance;
+        this->name = asset_name;
     }
 
     void update_asset() override {

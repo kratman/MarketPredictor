@@ -5,6 +5,7 @@
 
 class Asset {
 protected:
+    std::string name;
     double price;
     double shares;
 
@@ -33,6 +34,10 @@ public:
 
     double get_price() const {
         return price;
+    }
+
+    std::string get_name() const {
+        return name;
     }
 
     void purchase_shares(double const investment) {
