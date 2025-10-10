@@ -6,7 +6,6 @@
 
 
 class SoloAsset final : public Asset {
-    double price;
     double logMeanReturn;
     double standardDeviation;
 
@@ -28,10 +27,6 @@ public:
     void update_asset() override {
         auto const change = calculate_drift() + calculate_jump();
         price *= std::exp(change);
-    }
-
-    double get_price() const override {
-        return price;
     }
 
     ~SoloAsset() override = default;

@@ -8,4 +8,5 @@ add_executable(portfolio_sim
         src/montecarlo_asset.h
         src/portfolio_sim_main.cpp
         src/base_asset.h
+        src/portfolio.h
 )

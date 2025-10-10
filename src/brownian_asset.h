@@ -4,7 +4,6 @@
 #include "base_asset.h"
 
 class CoupledAsset final : public Asset {
-    double price;
     double oldPrice;
     double drag;
     double velocity;
@@ -55,10 +54,6 @@ public:
     void update_asset(double const coupledVelocity = 0.0) {
         update_price(coupledVelocity);
         update_velocity();
-    }
-
-    double get_price() const override {
-        return price;
     }
 
     double get_velocity() const {
