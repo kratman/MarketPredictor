@@ -5,36 +5,36 @@
 #include "base_asset.h"
 
 
-class SoloAsset : public Asset {
+class SoloAsset final : public Asset {
     double price;
     double logMeanReturn;
     double standardDeviation;
 
-    double calculateJump() const {
+    double calculate_jump() const {
         return standardDeviation * get_rand();
     }
 
-    double calculateDrift() const {
+    double calculate_drift() const {
         return logMeanReturn - (0.5 * standardDeviation * standardDeviation);
     }
 
 public:
-    SoloAsset() = default;
-
     SoloAsset(double const price, double const mean, double const variance) {
         this->price = price;
         this->logMeanReturn = mean;
         this->standardDeviation = variance;
     }
 
-    void UpdateMonteCarlo() {
-        auto const change = calculateDrift() + calculateJump();
+    void update_asset() override {
+        auto const change = calculate_drift() + calculate_jump();
         price *= std::exp(change);
     }
 
-    double GetPrice() const {
+    double get_price() const override {
         return price;
     }
+
+    ~SoloAsset() override = default;
 };
 
 #endif //MARKETPREDICTOR_MONTECARLO_ASSET_H
