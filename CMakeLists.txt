@@ -9,4 +9,6 @@ add_executable(portfolio_sim
         src/portfolio_sim_main.cpp
         src/base_asset.h
         src/portfolio.h
+        src/read_input.h
+        src/read_input.cpp
 )

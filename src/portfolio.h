@@ -37,11 +37,11 @@ public:
 };
 
 class AssetPortfolio {
-    int number_of_samples;
+    unsigned int number_of_samples;
     std::vector<AssetGroup> all_assets;
 
 public:
-    explicit AssetPortfolio(int const number_of_samples) {
+    explicit AssetPortfolio(unsigned int const number_of_samples) {
         this->number_of_samples = number_of_samples;
     }
 
