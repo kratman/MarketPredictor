@@ -1,6 +1,7 @@
 #ifndef MARKETPREDICTOR_BROWNIAN_ASSET_H
 #define MARKETPREDICTOR_BROWNIAN_ASSET_H
 
+#include <string>
 #include "base_asset.h"
 
 class CoupledAsset final : public Asset {

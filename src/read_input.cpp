@@ -4,9 +4,10 @@ using namespace std;
 
 AssetPortfolio read_portfolio() {
     string dummy;
-    unsigned int number_of_samples, number_of_assets;
+    unsigned int number_of_samples, number_of_steps, number_of_assets;
     cin >> dummy >> number_of_samples;
-    auto full_portfolio = AssetPortfolio(number_of_samples);
+    cin >> dummy >> number_of_steps;
+    auto full_portfolio = AssetPortfolio(number_of_samples, number_of_steps);
     cin >> dummy >> number_of_assets;
     for (int i=0; i<number_of_assets; i++) {
         string name;

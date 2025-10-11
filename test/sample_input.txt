@@ -1,4 +1,5 @@
 Number_of_samples: 10
+Number_of_steps: 1000
 Number_of_assets: 2
 Name: First
 Price: 44.06
