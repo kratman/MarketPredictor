@@ -1,0 +1,11 @@
+Number_of_samples: 10
+Number_of_steps: 1000
+Number_of_assets: 2
+Name: First
+Price: 44.06
+Log_mean_return: 0.000284685088744
+Variance: 0.011551333339698
+Name: Second
+Price: 88.12
+Log_mean_return: 0.000284685088744
+Variance: 0.011551333339698
